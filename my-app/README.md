@@ -1,5 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+##Установка библосов необходимых для работы!!!!!
+1) Ствим модули `npm install`
+2) Ставим библос для визуалки `npm install @material-ui/core`
+
+
 ## Available Scripts
 
 In the project directory, you can run:
