@@ -9,17 +9,19 @@ import SearchPanel from './components/search-panel';
 function App() {
 
   const todoDate = [
-      {
+      { id: 'dd',
         label: 'первый',
         important: true
       },
 
       {
+          id: 'aa',
           label: 'второй',
           important: true
       },
 
       {
+          id: 'ff',
           label: 'третий',
           important: false
       }

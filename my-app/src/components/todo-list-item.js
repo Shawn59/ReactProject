@@ -6,7 +6,7 @@ const ToDoListItem = (props) => {
     };
 
     return (
-        <li style={style}>{props.label}</li>
+        <li key={props.id} style={style}>{props.label}</li>
     );
 };
 
