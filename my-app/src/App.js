@@ -3,6 +3,8 @@ import './App.css';
 import ToDoList from './components/todo-list';
 import AppHeader from './components/app-header';
 import SearchPanel from './components/search-panel';
+import {isTSImportType} from "@babel/types";
+import NavMenu from './components/nav-menu';
 
 
 
@@ -27,7 +29,7 @@ function App() {
       }
   ];
 
-  return (
+ /* return (
     <div className="App">
       <header className="App-header">
         <AppHeader/>
@@ -35,7 +37,15 @@ function App() {
         <ToDoList listDate={todoDate}/>
       </header>
     </div>
-  );
+  );*/
+
+    return (
+        <div className="App">
+            <header className="App-header">
+                <NavMenu/>
+            </header>
+        </div>
+    );
 }
 
 export default App;

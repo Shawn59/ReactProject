@@ -3,6 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ##Установка библосов необходимых для работы!!!!!
 1) Ствим модули `npm install`
 2) Ставим библос для визуалки `npm install @material-ui/core`
+3) Ставим иконки. Их там более 1000 `npm install @material-ui/icons`
 
 
 ## Available Scripts
