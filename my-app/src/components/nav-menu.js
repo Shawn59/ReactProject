@@ -18,6 +18,40 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 
+import Link from '@material-ui/core/Link';
+
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+// странички
+import ProjectPage from './page/project-page';
+import PeoplePage from './page/people-page';
+
+
+const menuList = [
+    {
+        id: 'people',
+        name: 'Посоны',
+        url: '/people',
+        component: PeoplePage,
+        visible: true
+    },
+    {
+        id: 'project',
+        name: 'Проекты',
+        url: '/project',
+        component: ProjectPage,
+        visible: true
+    },
+   /* {
+        id: 'projectGroup',
+        name: 'Проектные группы',
+        url: '/projectGroup',
+        component: ProjectGroupPage,
+        visible: true
+    },*/
+];
+
+
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -129,6 +163,82 @@ export default function PersistentDrawerLeft() {
                 </div>
                 <Divider />
                 <List>
+                    {menuList.map((item) => (
+                        <ListItem button key={item.id}>
+                            <ListItemIcon><InboxIcon/></ListItemIcon>
+                            <ListItemText primary={item.name}/>
+                        </ListItem>
+                    ))}
+                </List>
+                <Divider />
+            </Drawer>
+            <main>
+              {  <Router>
+                    {menuList.map((item) => (
+                        <Route key={item.id} path={item.url} component={item.component}/>
+                    ))}
+                  <Link to={'/project'}>FFFFFFFFFFFFFFFFFFFFFFFFF</Link>
+                </Router>
+              }
+            </main>
+        </div>
+    );
+}
+
+/*
+export default function PersistentDrawerLeft() {
+    const classes = useStyles();
+    const theme = useTheme();
+    const [open, setOpen] = React.useState(false);
+
+    function handleDrawerOpen() {
+        setOpen(true);
+    }
+
+    function handleDrawerClose() {
+        setOpen(false);
+    }
+
+    return (
+        <div className={classes.root}>
+            <CssBaseline />
+            <AppBar
+                position="fixed"
+                className={clsx(classes.appBar, {
+                    [classes.appBarShift]: open,
+                })}
+            >
+                <Toolbar>
+                    <IconButton
+                        color="inherit"
+                        aria-label="Open drawer"
+                        onClick={handleDrawerOpen}
+                        edge="start"
+                        className={clsx(classes.menuButton, open && classes.hide)}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography variant="h6" noWrap>
+                        Оценки
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+            <Drawer
+                className={classes.drawer}
+                variant="persistent"
+                anchor="left"
+                open={open}
+                classes={{
+                    paper: classes.drawerPaper,
+                }}
+            >
+                <div className={classes.drawerHeader}>
+                    <IconButton onClick={handleDrawerClose}>
+                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                    </IconButton>
+                </div>
+                <Divider />
+                <List>
                     {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                         <ListItem button key={text}>
                             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
@@ -178,4 +288,4 @@ export default function PersistentDrawerLeft() {
             </main>
         </div>
     );
-}
+}*/
