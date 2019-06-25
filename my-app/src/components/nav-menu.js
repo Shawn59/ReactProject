@@ -18,20 +18,196 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 
-import Link from '@material-ui/core/Link';
+/*import Link from '@material-ui/core/Link';*/
 
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+
+import {BrowserRouter as Router, Route, NavLink, Link} from 'react-router-dom';
 // странички
 import ProjectPage from './page/project-page';
-import PeoplePage from './page/people-page';
+import GroupsPage from './page/groups-page';
+import HomePage from './page/home-page';
 
 
+const menuList = [
+    {
+        id: 'home',
+        name: 'Главная',
+        url: '/',
+        component: HomePage,
+        visible: true,
+        exact: true
+    },
+    {
+        id: 'people',
+        name: 'Группы',
+        url: '/people',
+        component: GroupsPage,
+        visible: true,
+        exact: false
+    },
+    {
+        id: 'project',
+        name: 'Проекты',
+        url: '/project',
+        component: ProjectPage,
+        visible: true,
+        exact: false
+    },
+   /* {
+        id: 'projectGroup',
+        name: 'Проектные группы',
+        url: '/projectGroup',
+        component: ProjectGroupPage,
+        visible: true
+    },*/
+];
+
+const GetMenuItemList = () => {
+    return menuList.map((item) => (
+        <ListItem key={item.id} component={NavLink} exact = {item.exact} to={item.url} activeClassName="active">
+            <ListItemIcon><InboxIcon/></ListItemIcon>
+            <ListItemText primary={item.name}/>
+        </ListItem>
+    ));
+};
+
+
+
+const drawerWidth = 240;
+
+const useStyles = makeStyles(theme => ({
+    root: {
+        display: 'flex',
+    },
+    appBar: {
+        transition: theme.transitions.create(['margin', 'width'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+    },
+    appBarShift: {
+        width: `calc(100% - ${drawerWidth}px)`,
+        marginLeft: drawerWidth,
+        transition: theme.transitions.create(['margin', 'width'], {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+    },
+    menuButton: {
+        marginRight: theme.spacing(2),
+    },
+    hide: {
+        display: 'none',
+    },
+    drawer: {
+        width: drawerWidth,
+        flexShrink: 0,
+    },
+    drawerPaper: {
+        width: drawerWidth,
+    },
+    drawerHeader: {
+        display: 'flex',
+        alignItems: 'center',
+        padding: '0 8px',
+        ...theme.mixins.toolbar,
+        justifyContent: 'flex-end',
+    },
+    content: {
+        flexGrow: 1,
+        padding: theme.spacing(3),
+        transition: theme.transitions.create('margin', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+        marginLeft: -drawerWidth,
+    },
+    contentShift: {
+        transition: theme.transitions.create('margin', {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+        marginLeft: 0,
+    }
+}));
+
+export default function PersistentDrawerLeft() {
+    const classes = useStyles();
+    const theme = useTheme();
+    const [open, setOpen] = React.useState(false);
+
+    function handleDrawerOpen() {
+        setOpen(true);
+    }
+
+    function handleDrawerClose() {
+        setOpen(false);
+    }
+
+    return (
+        <div className={classes.root}>
+            <CssBaseline />
+            <AppBar
+                position="fixed"
+                className={clsx(classes.appBar, {
+                    [classes.appBarShift]: open,
+                })}
+            >
+                <Toolbar>
+                    <IconButton
+                        color="inherit"
+                        aria-label="Open drawer"
+                        onClick={handleDrawerOpen}
+                        edge="start"
+                        className={clsx(classes.menuButton, open && classes.hide)}>
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography variant="h6" noWrap>
+                        Оценки
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+            <Drawer
+                className={classes.drawer}
+                variant="persistent"
+                anchor="left"
+                open={open}
+                classes={{
+                    paper: classes.drawerPaper,
+                }}
+            >
+                <div className={classes.drawerHeader}>
+                    <IconButton onClick={handleDrawerClose}>
+                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                    </IconButton>
+                </div>
+                <Divider />
+
+                <List>
+                    <GetMenuItemList/>
+                </List>
+
+                <Divider />
+            </Drawer>
+            <main>
+                {menuList.map((item) => (
+                    <Route key={item.id} path={item.url} exact={item.exact} component={item.component}/>
+                ))}
+            </main>
+        </div>
+    );
+}
+
+/*
 const menuList = [
     {
         id: 'people',
         name: 'Посоны',
         url: '/people',
-        component: PeoplePage,
+        component: GroupsPage,
         visible: true
     },
     {
@@ -41,13 +217,13 @@ const menuList = [
         component: ProjectPage,
         visible: true
     },
-   /* {
+    {
         id: 'projectGroup',
         name: 'Проектные группы',
         url: '/projectGroup',
         component: ProjectGroupPage,
         visible: true
-    },*/
+    },
 ];
 
 
@@ -123,6 +299,10 @@ export default function PersistentDrawerLeft() {
         setOpen(false);
     }
 
+    function ListItemLink(props) {
+        return <ListItem button component="a" {...props} />;
+    }
+
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -164,127 +344,18 @@ export default function PersistentDrawerLeft() {
                 <Divider />
                 <List>
                     {menuList.map((item) => (
-                        <ListItem button key={item.id}>
+                        <NavLink button to={item.url} key={item.id}>
                             <ListItemIcon><InboxIcon/></ListItemIcon>
                             <ListItemText primary={item.name}/>
-                        </ListItem>
+                        </NavLink>
                     ))}
                 </List>
                 <Divider />
             </Drawer>
             <main>
-              {  <Router>
-                    {menuList.map((item) => (
-                        <Route key={item.id} path={item.url} component={item.component}/>
-                    ))}
-                  <Link to={'/project'}>FFFFFFFFFFFFFFFFFFFFFFFFF</Link>
-                </Router>
-              }
-            </main>
-        </div>
-    );
-}
-
-/*
-export default function PersistentDrawerLeft() {
-    const classes = useStyles();
-    const theme = useTheme();
-    const [open, setOpen] = React.useState(false);
-
-    function handleDrawerOpen() {
-        setOpen(true);
-    }
-
-    function handleDrawerClose() {
-        setOpen(false);
-    }
-
-    return (
-        <div className={classes.root}>
-            <CssBaseline />
-            <AppBar
-                position="fixed"
-                className={clsx(classes.appBar, {
-                    [classes.appBarShift]: open,
-                })}
-            >
-                <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="Open drawer"
-                        onClick={handleDrawerOpen}
-                        edge="start"
-                        className={clsx(classes.menuButton, open && classes.hide)}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" noWrap>
-                        Оценки
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-            <Drawer
-                className={classes.drawer}
-                variant="persistent"
-                anchor="left"
-                open={open}
-                classes={{
-                    paper: classes.drawerPaper,
-                }}
-            >
-                <div className={classes.drawerHeader}>
-                    <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-                    </IconButton>
-                </div>
-                <Divider />
-                <List>
-                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
-                <Divider />
-                <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
-            </Drawer>
-            <main
-                className={clsx(classes.content, {
-                    [classes.contentShift]: open,
-                })}
-            >
-                <div className={classes.drawerHeader} />
-                <Typography paragraph>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-                    facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-                    gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-                    donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-                    adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-                    Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-                    imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-                    arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-                    donec massa sapien faucibus et molestie ac.
-                </Typography>
-                <Typography paragraph>
-                    Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-                    facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-                    tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-                    consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-                    vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-                    hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-                    tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-                    nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-                    accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
-                </Typography>
+                {menuList.map((item) => (
+                    <Route key={item.id} path={item.url} component={item.component}/>
+                ))}
             </main>
         </div>
     );

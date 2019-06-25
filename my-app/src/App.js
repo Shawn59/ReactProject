@@ -5,6 +5,7 @@ import AppHeader from './components/app-header';
 import SearchPanel from './components/search-panel';
 import {isTSImportType} from "@babel/types";
 import NavMenu from './components/nav-menu';
+import {BrowserRouter as Router} from "react-router-dom";
 
 
 
@@ -42,7 +43,9 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <NavMenu/>
+                <Router>
+                    <NavMenu/>
+                </Router>
             </header>
         </div>
     );
