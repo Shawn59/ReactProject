@@ -43,9 +43,9 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <Router>
+                {/*<Router>
                     <NavMenu/>
-                </Router>
+                </Router>*/}
             </header>
         </div>
     );

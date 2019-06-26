@@ -1,5 +1,6 @@
 import React from 'react';
-import ConfigJS from '../config/config'
+import ConfigJS from '../config/config';
+/*import Connect from '../config/connect'*/
 
 class GroupsPage extends React.Component {
     constructor (props) {
@@ -10,29 +11,18 @@ class GroupsPage extends React.Component {
             },
             users: [],
             projects: [],
+            api: ''
         };
         this.GetPeople();
     }
 
     GetPeople() {
-        var mysql = require('mysql');
+            /*fetch("http://reactproject.lh/server/apiEngine")
+                .then(response => response.json())
+                .then(data => this.setState({api: data}));*/
 
-        console.log('Get connection ...');
-
-        var conn = mysql.createPool({
-            database: 'assestment',
-            host: "localhost",
-            user: "root",
-            password: "",
-            connectionLimit: 50
-        });
-
-        conn.connect(function(err) {
-            if (err) throw err;
-            console.log("Connected!");
-        });
         const Config = ConfigJS;
-        //пиплы
+       /* //пиплы
         fetch("http://gitlab.utip.org/api/v4/groups/" + Config.groupDevID +"/members?private_token=" + Config.adminToken)
             .then(response => response.json())
             .then(data => this.setState({users: data}));
@@ -47,7 +37,7 @@ class GroupsPage extends React.Component {
                     };
                 });
                 this.setState({projects: projectList});
-            });
+            });*/
     };
 
     render() {
