@@ -1,6 +1,11 @@
 import React from 'react';
 import ConfigJS from '../config/config';
 /*import Connect from '../config/connect'*/
+const Config = ConfigJS;
+
+let style = {
+
+}
 
 class GroupsPage extends React.Component {
     constructor (props) {
@@ -11,18 +16,27 @@ class GroupsPage extends React.Component {
             },
             users: [],
             projects: [],
-            api: ''
+            groups: []
         };
+        //this.GetPeople = this.GetPeople.bind(this);
         this.GetPeople();
     }
 
     GetPeople() {
-            /*fetch("http://reactproject.lh/server/apiEngine")
+            fetch(Config.apiHost + "class=Groups&method=getGroups")
                 .then(response => response.json())
-                .then(data => this.setState({api: data}));*/
+                .then((result) => {
+                        this.setState({
+                            groups: result
+                        });
+                },(error) => {
+                this.setState({
+                    groups: [],
+                    error
+                });
+            });
 
-        const Config = ConfigJS;
-       /* //пиплы
+        //пиплы
         fetch("http://gitlab.utip.org/api/v4/groups/" + Config.groupDevID +"/members?private_token=" + Config.adminToken)
             .then(response => response.json())
             .then(data => this.setState({users: data}));
@@ -37,13 +51,21 @@ class GroupsPage extends React.Component {
                     };
                 });
                 this.setState({projects: projectList});
-            });*/
+            });
     };
 
     render() {
         return (
             <div>
                 <h3 style={this.state.style}>'Драсте пиплы'</h3>
+                <div>
+                    <span>Группы :</span>
+                    <ul>
+                        {this.state.groups.map(item => (
+                            <li key={item.id}> {item.name}</li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         )
     }

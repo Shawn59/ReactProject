@@ -24,7 +24,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-import {BrowserRouter as Router, Route, NavLink, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route, NavLink, Link, Switch} from 'react-router-dom';
 // странички
 import ProjectPage from './page/project-page';
 import GroupsPage from './page/groups-page';
@@ -41,9 +41,9 @@ const menuList = [
         exact: true
     },
     {
-        id: 'people',
+        id: 'groups',
         name: 'Группы',
-        url: '/people',
+        url: '/groups',
         component: GroupsPage,
         visible: true,
         exact: false
@@ -56,6 +56,9 @@ const menuList = [
         visible: true,
         exact: false
     },
+    /*{
+        id: 'notFound'
+    }*/
    /* {
         id: 'projectGroup',
         name: 'Проектные группы',
@@ -72,6 +75,14 @@ const GetMenuItemList = () => {
             <ListItemText primary={item.name}/>
         </ListItem>
     ));
+};
+
+const GetRouters = () => {
+    let routerList = menuList.map((item) => (
+        <Route key={item.id} path={item.url} exact={item.exact} component={item.component}/>
+    ));
+    routerList.push();
+    return routerList;
 };
 
 
@@ -193,170 +204,11 @@ export default function PersistentDrawerLeft() {
                 <Divider />
             </Drawer>
             <main>
-                {menuList.map((item) => (
-                    <Route key={item.id} path={item.url} exact={item.exact} component={item.component}/>
-                ))}
+                <Switch>
+                    <GetRouters/>
+                    <Route render={() => <h2> Страница не найдена </h2>}/>
+                </Switch>
             </main>
         </div>
     );
 }
-
-/*
-const menuList = [
-    {
-        id: 'people',
-        name: 'Посоны',
-        url: '/people',
-        component: GroupsPage,
-        visible: true
-    },
-    {
-        id: 'project',
-        name: 'Проекты',
-        url: '/project',
-        component: ProjectPage,
-        visible: true
-    },
-    {
-        id: 'projectGroup',
-        name: 'Проектные группы',
-        url: '/projectGroup',
-        component: ProjectGroupPage,
-        visible: true
-    },
-];
-
-
-
-const drawerWidth = 240;
-
-const useStyles = makeStyles(theme => ({
-    root: {
-        display: 'flex',
-    },
-    appBar: {
-        transition: theme.transitions.create(['margin', 'width'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-    },
-    appBarShift: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
-        transition: theme.transitions.create(['margin', 'width'], {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    },
-    menuButton: {
-        marginRight: theme.spacing(2),
-    },
-    hide: {
-        display: 'none',
-    },
-    drawer: {
-        width: drawerWidth,
-        flexShrink: 0,
-    },
-    drawerPaper: {
-        width: drawerWidth,
-    },
-    drawerHeader: {
-        display: 'flex',
-        alignItems: 'center',
-        padding: '0 8px',
-        ...theme.mixins.toolbar,
-        justifyContent: 'flex-end',
-    },
-    content: {
-        flexGrow: 1,
-        padding: theme.spacing(3),
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-        marginLeft: -drawerWidth,
-    },
-    contentShift: {
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-        marginLeft: 0,
-    },
-}));
-
-export default function PersistentDrawerLeft() {
-    const classes = useStyles();
-    const theme = useTheme();
-    const [open, setOpen] = React.useState(false);
-
-    function handleDrawerOpen() {
-        setOpen(true);
-    }
-
-    function handleDrawerClose() {
-        setOpen(false);
-    }
-
-    function ListItemLink(props) {
-        return <ListItem button component="a" {...props} />;
-    }
-
-    return (
-        <div className={classes.root}>
-            <CssBaseline />
-            <AppBar
-                position="fixed"
-                className={clsx(classes.appBar, {
-                    [classes.appBarShift]: open,
-                })}
-            >
-                <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="Open drawer"
-                        onClick={handleDrawerOpen}
-                        edge="start"
-                        className={clsx(classes.menuButton, open && classes.hide)}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" noWrap>
-                        Оценки
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-            <Drawer
-                className={classes.drawer}
-                variant="persistent"
-                anchor="left"
-                open={open}
-                classes={{
-                    paper: classes.drawerPaper,
-                }}
-            >
-                <div className={classes.drawerHeader}>
-                    <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-                    </IconButton>
-                </div>
-                <Divider />
-                <List>
-                    {menuList.map((item) => (
-                        <NavLink button to={item.url} key={item.id}>
-                            <ListItemIcon><InboxIcon/></ListItemIcon>
-                            <ListItemText primary={item.name}/>
-                        </NavLink>
-                    ))}
-                </List>
-                <Divider />
-            </Drawer>
-            <main>
-                {menuList.map((item) => (
-                    <Route key={item.id} path={item.url} component={item.component}/>
-                ))}
-            </main>
-        </div>
-    );
-}*/
