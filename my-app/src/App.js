@@ -44,6 +44,8 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <Router>
+                    <Switch>
+                    </Switch>
                     <NavMenu/>
                 </Router>
             </header>

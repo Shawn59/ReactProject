@@ -16,6 +16,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
+
+import GroupsOperationPage from './page/groups-operation-page';
+import MyRouters from '../routers/routers'
+
 import MailIcon from '@material-ui/icons/Mail';
 
 /*import Link from '@material-ui/core/Link';*/
@@ -68,17 +72,20 @@ const menuList = [
     },*/
 ];
 
+
 const GetMenuItemList = () => {
     return menuList.map((item) => (
-        <ListItem key={item.id} component={NavLink} exact = {item.exact} to={item.url} activeClassName="active">
+        <ListItem key={item.id} component={NavLink} exact={item.exact} to={item.url} activeClassName="active">
             <ListItemIcon><InboxIcon/></ListItemIcon>
             <ListItemText primary={item.name}/>
         </ListItem>
     ));
 };
 
+
+
 const GetRouters = () => {
-    let routerList = menuList.map((item) => (
+    let routerList = MyRouters.map((item) => (
         <Route key={item.id} path={item.url} exact={item.exact} component={item.component}/>
     ));
     routerList.push();
