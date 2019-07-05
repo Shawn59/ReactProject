@@ -10,6 +10,8 @@ import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
 import Chip from '@material-ui/core/Chip';
 
+import {connect} from "react-redux";
+
 const useStyles = makeStyles(theme => ({
     chips: {
         display: 'flex',
@@ -61,6 +63,7 @@ export default function MultipleSelect(props) {
     const classes = useStyles();
     const theme = useTheme();
     const [personName, setPersonName] = React.useState([]);
+    const {data} = props;
 
     function handleChange(event) {
         setPersonName(event.target.value);
@@ -95,9 +98,9 @@ export default function MultipleSelect(props) {
                     )}
                     MenuProps={MenuProps}
                 >
-                    {names.map(name => (
-                        <MenuItem key={name} value={name} style={getStyles(name, personName, theme)}>
-                            {name}
+                    {data.map(item => (
+                        <MenuItem key={item.id} value={item.name} style={getStyles(item.name, personName, theme)}>
+                            {item.name}
                         </MenuItem>
                     ))}
                 </Select>

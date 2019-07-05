@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b636a17-9131-442a-9167-7c0d1659a703" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/service/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/service/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/service/api-gitlab.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/service/api-gitlab.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/customItems/chip.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/customItems/chip.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/page/groups-operation-page.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/page/groups-operation-page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/service/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/service/reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/service/routers.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/service/routers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/store.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,12 +19,48 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-app/src/App.js">
+        <entry file="file://$PROJECT_DIR$/my-app/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+            <state relative-caret-position="238">
+              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my-app/src/store.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+              <folding>
+                <element signature="e#11#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my-app/src/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my-app/src/service/routers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#58#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -29,8 +69,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my-app/src/components/page/groups-operation-page.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+            <state relative-caret-position="302">
+              <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -39,24 +79,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-app/src/index.js">
+        <entry file="file://$PROJECT_DIR$/my-app/src/components/customItems/chip.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" selection-start-line="6" selection-end-line="17" selection-end-column="63" />
+            <state relative-caret-position="302">
+              <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#170#204#0" expanded="true" />
-                <element signature="e#311#348#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/my-app/src/service/reducer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="170">
+              <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -65,19 +103,7 @@
         <entry file="file://$PROJECT_DIR$/my-app/src/service/actions.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/my-app/src/service/store.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-              <folding>
-                <element signature="e#11#65#0" expanded="true" />
-              </folding>
+              <caret line="2" column="24" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -86,7 +112,7 @@
         <entry file="file://$PROJECT_DIR$/my-app/src/service/api-gitlab.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="42" lean-forward="true" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+              <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -134,8 +160,11 @@
       <find>MenuItem</find>
       <find>ConfigJS</find>
       <find>routers</find>
-      <find>todoDate</find>
       <find>CssTextField</find>
+      <find>createStore</find>
+      <find>todoDate</find>
+      <find>handleChangeMultiple</find>
+      <find>getGitUserList</find>
     </findStrings>
     <replaceStrings>
       <replace>GroupsPage</replace>
@@ -175,21 +204,23 @@
         <option value="$PROJECT_DIR$/my-app/src/components/css/groups-operation-page.css" />
         <option value="$PROJECT_DIR$/my-app/src/components/css/index.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/css/chip.css" />
-        <option value="$PROJECT_DIR$/my-app/src/components/customItems/chip.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/css/main.css" />
         <option value="$PROJECT_DIR$/my-app/src/components/api/api.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/page/groups-page.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/actions.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/reducer.js" />
         <option value="$PROJECT_DIR$/my-app/src/components/nav-menu.js" />
-        <option value="$PROJECT_DIR$/my-app/src/service/reducer.js" />
         <option value="$PROJECT_DIR$/my-app/src/service/api-server.js" />
-        <option value="$PROJECT_DIR$/my-app/src/App.js" />
-        <option value="$PROJECT_DIR$/my-app/src/components/page/groups-operation-page.js" />
-        <option value="$PROJECT_DIR$/my-app/src/index.js" />
         <option value="$PROJECT_DIR$/my-app/src/service/api-gitlab.js" />
         <option value="$PROJECT_DIR$/my-app/src/service/actions.js" />
         <option value="$PROJECT_DIR$/my-app/src/service/store.js" />
+        <option value="$PROJECT_DIR$/my-app/src/store.js" />
+        <option value="$PROJECT_DIR$/my-app/src/index.js" />
+        <option value="$PROJECT_DIR$/my-app/src/App.js" />
+        <option value="$PROJECT_DIR$/my-app/src/service/routers.js" />
+        <option value="$PROJECT_DIR$/my-app/src/components/customItems/chip.js" />
+        <option value="$PROJECT_DIR$/my-app/src/components/page/groups-operation-page.js" />
+        <option value="$PROJECT_DIR$/my-app/src/service/reducer.js" />
       </list>
     </option>
   </component>
@@ -237,19 +268,6 @@
               <item name="my-app" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ReactProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ReactProject" type="462c0819:PsiDirectoryNode" />
-              <item name="my-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ReactProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ReactProject" type="462c0819:PsiDirectoryNode" />
-              <item name="my-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -273,11 +291,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Project\ReactProject\my-app\src" />
       <recent name="C:\Project\ReactProject\my-app\src\routers" />
       <recent name="C:\Project\ReactProject\my-app\src\components\api" />
       <recent name="C:\Project\ReactProject\my-app\src\components" />
       <recent name="C:\Project\ReactProject\my-app" />
-      <recent name="C:\Project\ReactProject\my-app\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -309,12 +327,12 @@
       <workItem from="1561458412709" duration="24373000" />
       <workItem from="1561701913264" duration="4370000" />
       <workItem from="1561707187428" duration="16812000" />
-      <workItem from="1562038253346" duration="78395000" />
+      <workItem from="1562038253346" duration="82955000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176679000" />
+    <option name="totallyTimeSpent" value="181239000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
@@ -357,7 +375,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/server/db/index.js" />
     <entry file="file://$PROJECT_DIR$/my-app/src/components/server/db/groups.js" />
     <entry file="file://$PROJECT_DIR$/my-app/src/components/server/server.js" />
     <entry file="file://$PROJECT_DIR$/my-app/src/components/server/config/index.js" />
@@ -567,16 +584,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/customItems/chip.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/components/page/groups-page.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -624,16 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/service/routers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/components/nav-menu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -641,13 +638,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/App.js">
+    <entry file="file://$PROJECT_DIR$/my-app/src/service/api-gitlab.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="136">
+          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -658,56 +652,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/components/page/groups-operation-page.js">
+    <entry file="file://$PROJECT_DIR$/my-app/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+        <state relative-caret-position="238">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/service/api-gitlab.js">
+    <entry file="file://$PROJECT_DIR$/my-app/src/store.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="42" lean-forward="true" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+        <state relative-caret-position="102">
+          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+          <folding>
+            <element signature="e#11#51#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/service/reducer.js">
+    <entry file="file://$PROJECT_DIR$/my-app/node_modules/@material-ui/core/styles/colorManipulator.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="238">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/service/actions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/index.js">
+    <entry file="file://$PROJECT_DIR$/my-app/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="17" selection-end-column="63" />
+        <state relative-caret-position="166">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#170#204#0" expanded="true" />
-            <element signature="e#311#348#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/service/store.js">
+    <entry file="file://$PROJECT_DIR$/my-app/src/service/routers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        <state relative-caret-position="272">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding>
-            <element signature="e#11#65#0" expanded="true" />
+            <element signature="e#0#58#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/customItems/chip.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/components/page/groups-operation-page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/service/reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
         </state>
       </provider>
     </entry>

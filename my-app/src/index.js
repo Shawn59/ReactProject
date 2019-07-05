@@ -4,23 +4,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-// история
-import {createStore, bindActionCreators} from 'redux';
-import reducer from './service/reducer'
-// для прокидывания стора в другие компоненты
 import {Provider} from 'react-redux';
-import * as actions from "./service/actions";
-
-// хранилище данных
-const store = createStore(reducer);
-const {dispatch} = store;
-
-const {getGitUserList} = bindActionCreators(actions, dispatch);
+import store from './store'
+import {BrowserRouter as Router} from "react-router-dom";
 
 // Provider - работает как store.subscribe. Тобишь следит за обновление store
 ReactDOM.render(
     <Provider store={store}>
-        <App/>
+        <Router>
+            <App/>
+        </Router>
     </Provider>,
     document.getElementById('root')
 );

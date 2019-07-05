@@ -16,7 +16,7 @@ export default [
     },
     {
         id: 'home',
-        exact: true,
+        exact: true, // Только точно совпадение (?)
         url: '/',
         component: HomePage,
     },

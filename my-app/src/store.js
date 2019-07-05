@@ -1,5 +1,5 @@
 // история
-import {createStore} from 'redux/index';
+import {createStore} from 'redux';
 import reducer from './service/reducer'
 // для прокидывания стора в другие компоненты
 

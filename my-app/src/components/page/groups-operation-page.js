@@ -1,10 +1,8 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import { fade, withStyles, makeStyles, createMuiTheme } from '@material-ui/core/styles';
 import MyChip from '../customItems/chip'
-
 import {connect} from "react-redux";
-import {getGitUserList} from "../../service/actions";
+import {getGitUsers} from "../../service/actions";
 
 const HeaderPage = (props) => {
   return (
@@ -17,22 +15,21 @@ const HeaderPage = (props) => {
 
 class ContentPage extends React.Component {
     constructor (props) {
-        super();
-        this.state = {
-            users: []
-        }
+        super(props);
     }
 
     render() {
+        const {users} = this.props;
         return (
             <div className='operation-block-content flex-center'>
                 <div className='row flex-center'>
                     {/*<Label value={'Название группы:'} classStyle={props.classStyle}/>*/}
                     <TextField className={'textField'} label={'Введите название группы'}/>
                 </div>
+                <span>{users ? users[0].name : 'NOT'}</span>
 
                 <div className='row flex-center'>
-                    <MyChip label={'Посоны'} data={[]}/>
+                    <MyChip label={'Посоны'} data={users ? users : []}/>
                    {/* <div>{Api.users[0] ? Api.users[0].name : ''}</div>*/}
                 </div>
             </div>
@@ -50,7 +47,7 @@ const FooterPage = (props) => {
 
 class GroupsOperationPage extends React.Component {
     constructor (props) {
-        super();
+        super(props);
     }
     render() {
         const { classes } = this.props;
@@ -64,15 +61,13 @@ class GroupsOperationPage extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        counter: state
-    };
+const mapStateToProps = ({users}) => {
+    return {users};
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        inc: dispatch(getGitUserList())
+        getGitUsers: dispatch(getGitUsers())
     }
 };
 

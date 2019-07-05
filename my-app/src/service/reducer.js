@@ -1,5 +1,17 @@
-const reducer = (state = [], action) => {
+const dd = {
+    users: [
+        {
+            id: 1,
+            name: 'Andre'
+        },
+        {
+            id: 2,
+            name: 'Sergo'
+        }
+    ]
+};
 
+const reducer = (state = dd, action) => {
     switch (action.type) {
         case 'GET_GIT_USERS':
             return {
