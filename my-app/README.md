@@ -5,6 +5,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 2) Ставим библос для визуалки `npm install @material-ui/core`
 3) Ставим иконки. Их там более 1000 `npm install @material-ui/icons`
 4) Для роутинга `react-router-dom`
+5) Редакс `npm -i --save redux`
+6) Связка для реакта и редакса `npm -i --save react-redux`
 
 
 ## Available Scripts

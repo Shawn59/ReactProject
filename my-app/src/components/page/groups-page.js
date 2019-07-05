@@ -32,7 +32,7 @@ class GroupsPage extends React.Component {
     }
 
     GetPeople() {
-            fetch(Config.apiHost + "class=Groups&method=getGroups")
+           /* fetch(Config.apiHost + "class=Groups&method=getGroups")
                 .then(response => response.json())
                 .then((result) => {
                         this.setState({
@@ -60,7 +60,7 @@ class GroupsPage extends React.Component {
                     };
                 });
                 this.setState({projects: projectList});
-            });
+            });*/
     };
 
     render() {

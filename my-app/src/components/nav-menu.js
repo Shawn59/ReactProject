@@ -18,7 +18,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 
 import GroupsOperationPage from './page/groups-operation-page';
-import MyRouters from '../routers/routers'
 
 import MailIcon from '@material-ui/icons/Mail';
 
@@ -84,21 +83,14 @@ const GetMenuItemList = () => {
 
 
 
-const GetRouters = () => {
-    let routerList = MyRouters.map((item) => (
-        <Route key={item.id} path={item.url} exact={item.exact} component={item.component}/>
-    ));
-    routerList.push();
-    return routerList;
-};
-
-
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
+        height: '100px',
+        width: '100%'
     },
     appBar: {
         transition: theme.transitions.create(['margin', 'width'], {
@@ -211,10 +203,6 @@ export default function PersistentDrawerLeft() {
                 <Divider />
             </Drawer>
             <main>
-                <Switch>
-                    <GetRouters/>
-                    <Route render={() => <h2> Страница не найдена </h2>}/>
-                </Switch>
             </main>
         </div>
     );

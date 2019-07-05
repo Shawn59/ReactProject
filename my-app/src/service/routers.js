@@ -16,6 +16,7 @@ export default [
     },
     {
         id: 'home',
+        exact: true,
         url: '/',
         component: HomePage,
     },

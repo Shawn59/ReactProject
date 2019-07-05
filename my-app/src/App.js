@@ -1,54 +1,39 @@
 import React from 'react';
 import './App.css';
-import ToDoList from './components/todo-list';
-import AppHeader from './components/app-header';
-import SearchPanel from './components/search-panel';
-import {isTSImportType} from "@babel/types";
+import './components/css';
 import NavMenu from './components/nav-menu';
-import {BrowserRouter as Router, Redirect, Switch} from "react-router-dom";
-
-
+import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
+import MyRouters from "./service/routers";
+import ApiRest from './components/api/api'
 
 function App() {
+    /*const Api = new ApiRest();
+    const methodList = ['getGitUsers'];
+    for (let i = 0; i < methodList.length; i++) {
+        Api[methodList[i]]();
+    }*/
 
-  const todoDate = [
-      { id: 'dd',
-        label: 'первый',
-        important: true
-      },
-
-      {
-          id: 'aa',
-          label: 'второй',
-          important: true
-      },
-
-      {
-          id: 'ff',
-          label: 'третий',
-          important: false
-      }
-  ];
-
- /* return (
-    <div className="App">
-      <header className="App-header">
-        <AppHeader/>
-        <SearchPanel/>
-        <ToDoList listDate={todoDate}/>
-      </header>
-    </div>
-  );*/
+    const style = {
+        background: `url(${require('./images/andruha.jpg')}) `, //no-repeat
+    };
 
     return (
         <div className="App">
-            <header className="App-header">
+
+            <header className="App-header" style={style}>
                 <Router>
-                    <Switch>
-                    </Switch>
                     <NavMenu/>
+
+                    <Switch>
+                        {MyRouters.map((item) => (
+                            <Route key={item.id} path={item.url} exact={item.exact} component={item.component}/>
+                        ))}
+                        <Route render={() => <h2> Страница не найдена </h2>}/>
+                    </Switch>
+
                 </Router>
             </header>
+
         </div>
     );
 }
