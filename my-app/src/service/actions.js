@@ -1,3 +1,11 @@
 
 // Action creater - для чистого кода и реиспользования
-export const getGitUsers = () => ({type: 'GET_GIT_USERS'});
+ const getGitUsers = (newUsers) => (
+    {
+        type: 'GET_GIT_USERS',
+        payload: newUsers
+    });
+
+export {
+    getGitUsers
+};

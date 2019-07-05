@@ -19,7 +19,8 @@ class ContentPage extends React.Component {
     }
 
     render() {
-        const {users} = this.props;
+        const {users} = this.props.data;
+        console.log(this.props.users);
         return (
             <div className='operation-block-content flex-center'>
                 <div className='row flex-center'>
@@ -50,11 +51,11 @@ class GroupsOperationPage extends React.Component {
         super(props);
     }
     render() {
-        const { classes } = this.props;
+        //console.log(this.props.users);
         return (
             <div className='operation-block'>
                 <HeaderPage title={'Операция над группами'}/>
-                <ContentPage/>
+                <ContentPage data={this.props}/>
                 <FooterPage/>
             </div>
         );
@@ -65,14 +66,14 @@ const mapStateToProps = ({users}) => {
     return {users};
 };
 
-const mapDispatchToProps = (dispatch) => {
+/*const mapDispatchToProps = (dispatch) => {
     return {
         getGitUsers: dispatch(getGitUsers())
     }
-};
+};*/
 
 // connect - компонент высшего порядка, который внутри себя создаёт новый компонент, которые оборачивает наш компонент
 //например APP
 // экспортируем новый компонент APP со связанным редаксом
 
-export default connect(mapStateToProps, mapDispatchToProps)(GroupsOperationPage);
+export default connect(mapStateToProps)(GroupsOperationPage);
