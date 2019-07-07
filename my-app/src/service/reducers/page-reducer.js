@@ -1,4 +1,3 @@
-/*
 const initialState = {
     users: [
         {
@@ -12,7 +11,7 @@ const initialState = {
     ]
 };
 
-const reducer = (state = initialState, action) => {
+const pageReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'GET_GIT_USERS':
             return {
@@ -25,4 +24,4 @@ const reducer = (state = initialState, action) => {
     }
 };
 
-export default reducer;*/
+export default pageReducer;

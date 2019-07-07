@@ -1,9 +1,9 @@
 // история
 import {createStore} from 'redux';
-import reducer from './service/reducer'
+import rootReducer from './service/reducers'
 // для прокидывания стора в другие компоненты
 
 // хранилище данных
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 
 export default store;

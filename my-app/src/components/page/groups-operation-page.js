@@ -62,8 +62,14 @@ class GroupsOperationPage extends React.Component {
     }
 }
 
-const mapStateToProps = ({users}) => {
-    return {users};
+// Отлавливает возвращаемое значение из редьюсера, который возвращает state
+// и добавляет свойство users в props для оборачиваемого компонента коннектом, в данном случаи GroupsOperationPage
+// И подписывается(subscribe) на изменения этих данных
+const mapStateToProps = (reducerState) => {
+    console.log(reducerState.page.users);
+    return {
+        users: reducerState.page.users
+    };
 };
 
 /*const mapDispatchToProps = (dispatch) => {
