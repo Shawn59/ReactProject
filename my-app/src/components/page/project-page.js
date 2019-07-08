@@ -2,7 +2,7 @@ import React from 'react';
 
 class ProjectPage extends React.Component {
     constructor (props) {
-        super();
+        super(props);
         this.state = {
             style: {
                 color: 'blue'

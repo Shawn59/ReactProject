@@ -2,7 +2,7 @@ import React from 'react';
 
 class HomePage extends React.Component {
     constructor (props) {
-        super();
+        super(props);
     }
     render() {
         return (

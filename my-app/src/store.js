@@ -1,9 +1,11 @@
 // история
-import {createStore} from 'redux';
+import {applyMiddleware, createStore} from 'redux';
 import rootReducer from './service/reducers'
-// для прокидывания стора в другие компоненты
+//усилители
+import logger from 'redux-logger'
+import thunk from 'redux-thunk'
 
 // хранилище данных
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(logger, thunk));
 
 export default store;
