@@ -27,41 +27,7 @@ class GroupsPage extends React.Component {
             groups: []
         };
         this.classes = useStyles;
-        //this.GetPeople = this.GetPeople.bind(this);
-        this.GetPeople();
     }
-
-    GetPeople() {
-           /* fetch(Config.apiHost + "class=Groups&method=getGroups")
-                .then(response => response.json())
-                .then((result) => {
-                        this.setState({
-                            groups: result
-                        });
-                },(error) => {
-                this.setState({
-                    groups: [],
-                    error
-                });
-            });
-
-        //пиплы
-        fetch("http://gitlab.utip.org/api/v4/groups/" + Config.groupDevID +"/members?private_token=" + Config.adminToken)
-            .then(response => response.json())
-            .then(data => this.setState({users: data}));
-        // проекты
-        fetch("http://gitlab.utip.org/api/v4/projects?private_token=" + Config.adminToken)
-            .then(response => response.json())
-            .then(data => {
-                let projectList = data.map((item) => {
-                    return {
-                        id: item.id,
-                        name: item.name
-                    };
-                });
-                this.setState({projects: projectList});
-            });*/
-    };
 
     render() {
         return (
