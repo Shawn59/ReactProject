@@ -1,5 +1,6 @@
-import PageReducer from './page-reducer';
 import UserReducer from './user-reducer';
+import GroupReducer from './groups-reducer';
+import GitReducer from './git-reducer'
 import { combineReducers } from 'redux';
 
 // Редьюсеры должны быть разделены по принципу моделей
@@ -9,6 +10,7 @@ import { combineReducers } from 'redux';
 
 //rootReducer
 export default combineReducers({
-    PageReducer,
     UserReducer,
+    GroupReducer,
+    GitReducer,
 });

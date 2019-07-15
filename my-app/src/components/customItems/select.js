@@ -7,10 +7,11 @@ import Select from '@material-ui/core/Select';
 export default function ControlledOpenSelect(props) {
     const [dataValue, setDataValue] = React.useState('');
     const [open, setOpen] = React.useState(false);
-    const {data} = props;
+    const {data, callback} = props;
 
     function handleChange(event) {
         setDataValue(event.target.value);
+        callback(event.target.value);
     }
 
     function handleClose() {
@@ -36,12 +37,12 @@ export default function ControlledOpenSelect(props) {
                         id: 'demo-controlled-open-select',
                     }}
                 >
-                    <MenuItem value="None">
+                   {/* <MenuItem value="None">
                         <em>None</em>
-                    </MenuItem>
+                    </MenuItem>*/}
 
                     {data.map((item) => (
-                        <MenuItem key={item.id} value={item.name}>
+                        <MenuItem key={item.id} value={item.id}>
                             {item.name}
                         </MenuItem>
                     ))}

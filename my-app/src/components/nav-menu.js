@@ -17,21 +17,12 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 
-import GroupsOperationPage from './page/groups-operation-page';
-
-import MailIcon from '@material-ui/icons/Mail';
-
-/*import Link from '@material-ui/core/Link';*/
-
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-
 import {BrowserRouter as Router, Route, NavLink, Link, Switch} from 'react-router-dom';
 // странички
 import ProjectPage from './page/project-page';
 import GroupsPage from './page/groups-page';
 import HomePage from './page/home-page';
+import UsersPage from "./page/users-page";
 
 
 const menuList = [
@@ -59,16 +50,12 @@ const menuList = [
         visible: true,
         exact: false
     },
-    /*{
-        id: 'notFound'
-    }*/
-   /* {
-        id: 'projectGroup',
-        name: 'Проектные группы',
-        url: '/projectGroup',
-        component: ProjectGroupPage,
-        visible: true
-    },*/
+    {
+        id: 'users',
+        name: 'Пользователи',
+        url: '/users',
+        component: UsersPage,
+    },
 ];
 
 

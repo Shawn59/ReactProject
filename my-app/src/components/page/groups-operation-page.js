@@ -1,20 +1,22 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
-import CustomChip from '../customItems/chip'
 import {connect} from "react-redux";
-import PropTypes from 'prop-types'
-import {getGitUsers, getGitProjects} from "../../service/actions";
-import Button from '@material-ui/core/Button';
-import CustomSelect from '../customItems/select'
-import UserReducer from "../../service/reducers/user-reducer";
-
+import TextField from "@material-ui/core/TextField";
+import CustomSelect from "../customItems/select";
+import CustomChip from "../customItems/chip";
+import Button from "@material-ui/core/Button";
+import {
+    getGitProjects,
+    getGitUsers,
+    addGroup,
+    getGitUsersForProject
+} from "../../service/actions";
 
 const HeaderPage = (props) => {
-  return (
-      <div className='operation-block-header'>
-          <span> {props.title} </span>
-      </div>
-  );
+    return (
+        <div className='operation-block-header'>
+            <span> {props.title} </span>
+        </div>
+    );
 };
 
 
@@ -24,7 +26,7 @@ class ContentPage extends React.Component {
     }
 
     render() {
-        const {users, projects} = this.props;
+        const {usersForProject, projects, getGitUsersForProject} = this.props;
         return (
             <div className='operation-block-content flex-center'>
                 <div className='row flex-center'>
@@ -33,12 +35,12 @@ class ContentPage extends React.Component {
                 </div>
                 {/*<span>{users && users[0]? users[0].name : 'NOT'}</span>*/}
                 <div className='row flex-center'>
-                    <CustomSelect data={projects ? projects: []}/>
+                    <CustomSelect data={projects ? projects: []} callback={getGitUsersForProject}/>
                 </div>
 
                 <div className='row flex-center'>
-                    <CustomChip label={'Посоны'} data={users ? users : []}/>
-                   {/* <div>{Api.users[0] ? Api.users[0].name : ''}</div>*/}
+                    <CustomChip label={'Посоны'} data={usersForProject ? usersForProject : []}/>
+                    {/* <div>{Api.users[0] ? Api.users[0].name : ''}</div>*/}
                 </div>
             </div>
         );
@@ -48,17 +50,14 @@ class ContentPage extends React.Component {
 class FooterPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            counter: 1
-        };
     }
 
     onBtnClick = () => {
-        this.props.getPhotos(); // setYear -> getPhotos
+        this.props.addGroup(this.props.projects, this.props.users);
     };
 
     render() {
-        const {parentProps} = this.props;
+        const {users, projects, addProject} = this.props;
         return (
             <div className={'titlePage'}>
                 <Button variant="outlined" onClick={this.onBtnClick} size="medium" color="secondary">
@@ -69,26 +68,32 @@ class FooterPage extends React.Component {
     }
 };
 
-class GroupsOperationPage extends React.Component {
+class ProjectPage extends React.Component {
     constructor (props) {
         super(props);
-        this.PropTypes = {
-            users: PropTypes.array.isRequired
+        this.state = {
+            style: {
+                color: 'blue'
+            }
         };
     }
     render() {
-        const { users, projects } = this.props;
+        const { users, projects, getGitUsersForProject, usersForProject } = this.props;
         return (
             <div className='operation-block'>
-                <HeaderPage title={'Операция над группами'}/>
-                <ContentPage users={users} projects={projects}/>
-                <FooterPage/>
+                <HeaderPage title={'Добавление проекта'}/>
+                <ContentPage usersForProject={usersForProject}
+                             projects={projects}
+                             getGitUsersForProject={getGitUsersForProject}
+                />
+                <FooterPage users={users}
+                            projects={projects}
+                            addGroup={this.props.addGroup}
+                />
             </div>
-        );
+        )
     }
 }
-
-
 
 // Отлавливает возвращаемое значение из редьюсера, который возвращает state
 // и добавляет свойство users в props для оборачиваемого компонента коннектом, в данном случаи GroupsOperationPage
@@ -96,8 +101,10 @@ class GroupsOperationPage extends React.Component {
 const mapStateToProps = (reducerState) => {
     //console.log(reducerState.page.users);
     return {
-        users: reducerState.PageReducer.users,
-        projects: reducerState.PageReducer.projects,
+        users: reducerState.GitReducer.users,
+        projects: reducerState.GitReducer.projects,
+        usersForProject: reducerState.GitReducer. usersForProject,
+
     };
 };
 
@@ -105,8 +112,10 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getGitUsersDispatch: dispatch(getGitUsers()),
         getGitProjectsDispatch: dispatch(getGitProjects()),
+        addGroup: (projectId, userIds) => dispatch(addGroup(projectId, userIds)),
+        getGitUsersForProject: (project_id) => dispatch(getGitUsersForProject(project_id)),
         //передаём ссылку на функцию
-       // getPhotosDispatch: () => dispatch(getPhotos())
+        // getPhotosDispatch: () => dispatch(getPhotos())
     }
 };
 
@@ -114,4 +123,4 @@ const mapDispatchToProps = (dispatch) => {
 //например APP
 // экспортируем новый компонент APP со связанным редаксом
 
-export default connect(mapStateToProps, mapDispatchToProps)(GroupsOperationPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectPage);

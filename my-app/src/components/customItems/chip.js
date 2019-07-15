@@ -14,6 +14,8 @@ const useStyles = makeStyles(theme => ({
     },
     chip: {
         margin: 2,
+        backgroundColor: 'cornflowerblue',
+        color: 'white',
     },
     noLabel: {
         marginTop: theme.spacing(3),
@@ -49,17 +51,6 @@ export default function MultipleSelect(props) {
 
     function handleChange(event) {
         setPersonName(event.target.value);
-    }
-
-    function handleChangeMultiple(event) {
-        const { options } = event.target;
-        const value = [];
-        for (let i = 0, l = options.length; i < l; i += 1) {
-            if (options[i].selected) {
-                value.push(options[i].value);
-            }
-        }
-        setPersonName(value);
     }
 
     return (
