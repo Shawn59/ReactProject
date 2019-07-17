@@ -11,7 +11,10 @@ export default function ControlledOpenSelect(props) {
 
     function handleChange(event) {
         setDataValue(event.target.value);
-        callback(event.target.value);
+        // в качестве аргумента передаётся выбранный элемент
+        if (callback) {
+            callback(event.target.value);
+        }
     }
 
     function handleClose() {

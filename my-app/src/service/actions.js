@@ -93,6 +93,7 @@ export function addGroup(projectId, userIds) {
 }
 
 export function getGitUsersForProject(project_id) {
+    // аргумент dispatch это на самом деле свойства store
     return (dispatch) => {
         // Момент запроса
         dispatch({

@@ -6,6 +6,6 @@ import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 
 // хранилище данных
-const store = createStore(rootReducer, applyMiddleware(logger, thunk));
+const store = createStore(rootReducer, applyMiddleware(logger, thunk)); // thunk позволяет нам отправлять функции
 
 export default store;

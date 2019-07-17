@@ -71,20 +71,15 @@ class FooterPage extends React.Component {
 class ProjectPage extends React.Component {
     constructor (props) {
         super(props);
-        this.state = {
-            style: {
-                color: 'blue'
-            }
-        };
     }
     render() {
-        const { users, projects, getGitUsersForProject, usersForProject } = this.props;
+        const { users, projects, usersForProject } = this.props;
         return (
             <div className='operation-block'>
                 <HeaderPage title={'Добавление проекта'}/>
                 <ContentPage usersForProject={usersForProject}
                              projects={projects}
-                             getGitUsersForProject={getGitUsersForProject}
+                             getGitUsersForProject={this.props.getGitUsersForProject}
                 />
                 <FooterPage users={users}
                             projects={projects}

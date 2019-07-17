@@ -108,6 +108,7 @@ const mapDispatchToProps = (dispatch) => {
         getGitUsersDispatch: dispatch(getGitUsers()),
         getGitProjectsDispatch: dispatch(getGitProjects()),
         //addProject: (projects, users) => dispatch(addProjects(projects, users)),
+
         //передаём ссылку на функцию
         // getPhotosDispatch: () => dispatch(getPhotos())
     }
