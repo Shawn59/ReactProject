@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import {Provider} from 'react-redux';
-import store from './store'
+import { Provider } from 'mobx-react';
+import store from './stores'
 import {BrowserRouter as Router} from "react-router-dom";
 
 // Provider - работает как store.subscribe. Тобишь следит за обновление store
