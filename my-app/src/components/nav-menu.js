@@ -19,10 +19,8 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 
 import {BrowserRouter as Router, Route, NavLink, Link, Switch} from 'react-router-dom';
 // странички
-import ProjectPage from './page/project-page';
 import GroupsPage from './page/groups-page';
 import HomePage from './page/home-page';
-import UsersPage from "./page/users-page";
 
 
 const menuList = [
@@ -41,20 +39,6 @@ const menuList = [
         component: GroupsPage,
         visible: true,
         exact: false
-    },
-    {
-        id: 'project',
-        name: 'Проекты',
-        url: '/project',
-        component: ProjectPage,
-        visible: true,
-        exact: false
-    },
-    {
-        id: 'users',
-        name: 'Пользователи',
-        url: '/users',
-        component: UsersPage,
     },
 ];
 

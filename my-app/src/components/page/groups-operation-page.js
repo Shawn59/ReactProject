@@ -90,32 +90,4 @@ class ProjectPage extends React.Component {
     }
 }
 
-// Отлавливает возвращаемое значение из редьюсера, который возвращает state
-// и добавляет свойство users в props для оборачиваемого компонента коннектом, в данном случаи GroupsOperationPage
-// И подписывается(subscribe) на изменения этих данных
-const mapStateToProps = (reducerState) => {
-    //console.log(reducerState.page.users);
-    return {
-        users: reducerState.GitReducer.users,
-        projects: reducerState.GitReducer.projects,
-        usersForProject: reducerState.GitReducer. usersForProject,
-
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getGitUsersDispatch: dispatch(getGitUsers()),
-        getGitProjectsDispatch: dispatch(getGitProjects()),
-        addGroup: (projectId, userIds) => dispatch(addGroup(projectId, userIds)),
-        getGitUsersForProject: (project_id) => dispatch(getGitUsersForProject(project_id)),
-        //передаём ссылку на функцию
-        // getPhotosDispatch: () => dispatch(getPhotos())
-    }
-};
-
-// connect - компонент высшего порядка, который внутри себя создаёт новый компонент, которые оборачивает наш компонент
-//например APP
-// экспортируем новый компонент APP со связанным редаксом
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectPage);
+export default ProjectPage;
