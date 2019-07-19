@@ -1,5 +1,3 @@
 import menuStore from "./menu-store";
 
-export default {
-    menuStore
-}
+export default menuStore

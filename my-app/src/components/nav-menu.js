@@ -116,10 +116,10 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-
  const PersistentDrawerLeft = () => {
+    // const PersistentDrawerLeft = inject('menuStore')(observer(({menuStore}) => {
     const classes = useStyles();
-    const f = inject ("menuStore");
+    //const f = menuStore;
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
@@ -183,7 +183,8 @@ const useStyles = makeStyles(theme => ({
             </main>
         </div>
     );
-};
+}
+//));
 
 export default PersistentDrawerLeft;
 
