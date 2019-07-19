@@ -17,7 +17,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 
-import {BrowserRouter as Router, Route, NavLink, Link, Switch} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
+import { observer, inject} from 'mobx-react';
 // странички
 import GroupsPage from './page/groups-page';
 import HomePage from './page/home-page';
@@ -115,17 +116,21 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function PersistentDrawerLeft() {
+
+ const PersistentDrawerLeft = () => {
     const classes = useStyles();
+    const f = inject ("menuStore");
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
     function handleDrawerOpen() {
         setOpen(true);
+        this.props.menuStore = true;
     }
 
     function handleDrawerClose() {
         setOpen(false);
+        this.props.menuStore = false;
     }
 
     return (
@@ -173,8 +178,18 @@ export default function PersistentDrawerLeft() {
 
                 <Divider />
             </Drawer>
+
             <main>
             </main>
         </div>
     );
-}
+};
+
+export default PersistentDrawerLeft;
+
+
+/*
+export default observer (
+    () => (
+        PersistentDrawerLeft
+    ));*/

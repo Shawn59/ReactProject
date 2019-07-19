@@ -9,3 +9,9 @@
 7) Усилитель, который чекает action на тип, объект это или функция. При этом, если функция, то выполняет её `npm install redux-thunk --save`
 8) Валидатор типизации `npm install --save prop-types`
 9) Логер - логирует работу редакса в консоль(ставим только для разработки(dev)) `npm i --save-dev redux-logger`
+10) Поставить craco для того чтобы можно было конфигурировать приложение поверх create ract app
+ https://github.com/sharegate/craco/blob/master/packages/craco/README.md#custom-location-for-cracoconfigjs
+ 
+ https://github.com/sharegate/craco/tree/master/recipes
+ поставить декоратор
+ https://www.robinwieruch.de/create-react-app-mobx-decorators/
