@@ -8,7 +8,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
 
-    devServer: {
+   /* devServer: {
         stats: "error-only",
-    }
+    }*/
 };
