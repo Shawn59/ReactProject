@@ -1,0 +1,25 @@
+{
+  "name": "mycrm",
+  "version": "1.0.0",
+  "description": "Cool crm",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "hjk"
+  },
+  "main": "index.js",
+  "license": "ISC",
+  "author": "Andre",
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  }
+}
