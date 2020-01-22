@@ -1,29 +1,6 @@
 {
   "presets": [
-    "react",
-    ["env", {
-      "targets": {
-        "browsers": ["last 2 versions"]
-      }
-    }],
-    "stage-0"
-  ],
-  "comments": true,
-
-  "plugins": [
-    "transform-runtime",
-    "transform-decorators-legacy",
-    "transform-class-properties"
-  ],
-  
-  "env": {
-    "test": {
-      "plugins": [
-        "transform-runtime",
-        "transform-decorators-legacy",
-        "transform-class-properties",
-        "babel-plugin-webpack-alias"
-      ]
-    }
-  }
+    "@babel/preset-env", // пресет используется для транспайлинга кода ES6/ES7/ES8 в ES5.
+    "@babel/preset-react" // пресет используется для транспайлинга кода JSX в ES5
+  ]
 }
